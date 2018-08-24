@@ -326,9 +326,10 @@ read_stdio (void *cls)
     case 'm':
     strcpy(buf, "🙆");
     break;
-    case '\n':
+    default:
     strcpy(buf, "Yo!");
     break;
+    
   }
   data_size = sizeof(buf);
 
@@ -554,7 +555,7 @@ handle_data (void *cls,
   buf = (const char *) &message[1];
   mvprintw(6, 0, "Recived : %s", buf);
   refresh();
-  sleep(1);
+  usleep(500000);
   mvprintw(6, 0, "                                    ");
   refresh();
 /*
@@ -1026,6 +1027,7 @@ main (int argc,
   initscr();
   noecho();
   clear();
+  curs_set(0);
   mvprintw(0, 0, "GNUnet YO!");
   mvprintw(3, 0, "Press any key to start yowing!");
   refresh();
