@@ -26,7 +26,8 @@ libexec_PROGRAMS = \
  $(EXP_LIBEXEC)
 
 bin_PROGRAMS = \
- gnunet-cadet
+ gnunet-cadet \
+ yo
 
 lib_LTLIBRARIES = \
   libgnunetcadet.la \
@@ -44,6 +45,14 @@ libgnunetcadet_la_LDFLAGS = \
 
 gnunet_cadet_SOURCES = \
   gnunet-cadet.c
+
+yo_SOURCES= \
+  yo.c
+
+yo_LDADD = \
+  libgnunetcadet.la \
+  $(top_builddir)/src/util/libgnunetutil.la
+
 gnunet_cadet_LDADD = \
   libgnunetcadet.la \
   $(top_builddir)/src/util/libgnunetutil.la
